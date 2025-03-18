@@ -14,15 +14,15 @@ function sortear() {
     console.log(`Do número: ${de}`);
     console.log(`Até o número: ${ate}`);
     console.log(`Números Sorteado: ${sorteados}`);
+
+    exibirTextoNaTela('#resultado', sorteados);
 }
 
 function obterNumeroAleatorio(min, max) {
     return parseInt(Math.floor(Math.random() * (max - min + 1)) + min);
 }
 
-
-
-// criar uma váriavel chamada sorteados e incluir o array dentro da função sortear
-//Criar um loop para que seja verificado a quantidade de números que serão sorteados.
-//Dentro do loop atribuir a função de obter números aleatórios e passar o parametro
-//  esperado e incluir os números no array usando o push.
+function exibirTextoNaTela (IdLabel, IdResultado){
+    let campo = document.querySelector(IdLabel);
+    campo.innerHTML = IdResultado;
+}
