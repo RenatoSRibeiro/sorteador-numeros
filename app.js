@@ -47,7 +47,7 @@ function reiniciar() {
     document.getElementById('de').value = '';
     document.getElementById('ate').value = '';
     document.getElementById('resultado').value = '<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>';
-    alterarStatusBotao();
+    alterarStatusBotao()
 }
 
 
