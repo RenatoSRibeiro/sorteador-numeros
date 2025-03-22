@@ -5,25 +5,34 @@ function sortear() {
 
     let sorteados = [];
     let numero;
-
-    for (let i = 0; i < quantidade; i++) {
-        numero = obterNumeroAleatorio(de, ate);
-        while (sorteados.includes(numero)) {
+    if (de >= ate) {
+        alert('O valor do campo "Do número", não pode ser maior ou igual ao valor do campo "Até o número"');
+        alterarStatusBotao();
+    } else {
+            for (let i = 0; i < quantidade; i++) {
             numero = obterNumeroAleatorio(de, ate);
-        }
+            return;
+            while (sorteados.includes(numero)) {
+                numero = obterNumeroAleatorio(de, ate);
+            }
 
-        sorteados.push(numero);
+            sorteados.push(numero);
+
+            console.log(`Quantidade de números: ${quantidade}`);
+            console.log(`Do número: ${de}`);
+            console.log(`Até o número: ${ate}`);
+            console.log(`Números Sorteado: ${sorteados}`);
+        
+            let resultado = document.getElementById('resultado');
+            resultado.innerHTML = (`<label class="texto__paragrafo">Números sorteados: ${sorteados}</label>`);
+        
+            alterarStatusBotao();
+            
+        }
     }
 
-    console.log(`Quantidade de números: ${quantidade}`);
-    console.log(`Do número: ${de}`);
-    console.log(`Até o número: ${ate}`);
-    console.log(`Números Sorteado: ${sorteados}`);
 
-    let resultado = document.getElementById('resultado');
-    resultado.innerHTML = (`<label class="texto__paragrafo">Números sorteados: ${sorteados}</label>`);
-
-    alterarStatusBotao();
+ 
 
 }
 
@@ -33,7 +42,7 @@ function obterNumeroAleatorio(min, max) {
 
 function alterarStatusBotao() {
     let botao = document.getElementById('btn-reiniciar');
-    if(botao.classList.contains('container__botao-desabilitado')){
+    if (botao.classList.contains('container__botao-desabilitado')) {
         botao.classList.remove('container__botao-desabilitado');
         botao.classList.add('container__botao');
     } else {
